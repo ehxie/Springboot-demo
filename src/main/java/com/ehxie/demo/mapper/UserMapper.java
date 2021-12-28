@@ -10,4 +10,28 @@ public interface UserMapper {
      * @return 用户信息列表
      */
     List<User> selectAllUser();
+
+    /**
+     * 新增用户
+     * @return 影响行数
+     */
+    int addUser(User user);
+
+    /**
+     * 修改用户
+     * @return 影响行数
+     */
+    int updateUser(User user);
+
+    /**
+     * 删除用户
+     * @return 影响行数
+     */
+    int deleteUser(int id);
+
+    /**
+     * 查询用户
+     * @return 影响行数
+     */
+    User getUser(int id);
 }

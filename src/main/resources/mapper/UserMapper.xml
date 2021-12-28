@@ -2,6 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.ehxie.demo.mapper.UserMapper" >
     <select id="selectAllUser" resultType="com.ehxie.demo.model.User">
-    select * from user
-  </select>
+        select * from user
+    </select>
+    <insert id="addUser" parameterType="com.ehxie.demo.model.User">
+        INSERT INTO user(name, age, gender, password) VALUES (#{name}, #{age}, #{gender}, #{password});
+    </insert>
+    <select id="getUser" parameterType="integer" resultType="com.ehxie.demo.model.User">
+        SELECT * from user where id = #{id}
+    </select>
+    <delete id="deleteUser" parameterType="integer">
+        DELETE from user where id = #{id}
+    </delete>
+    <update id="updateUser" parameterType="com.ehxie.demo.model.User">
+        UPDATE user SET name = #{name}, age = #{age}, gender = #{gender}, password = #{password} WHERE id = #{id}
+    </update>
 </mapper>
